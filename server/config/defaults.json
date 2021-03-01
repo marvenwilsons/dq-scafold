@@ -1,0 +1,4 @@
+{
+    "devHost": "site",
+    "prodHost": "172.20.0.2"
+}
