@@ -70,6 +70,9 @@ module.exports = {
   env: {
       baseUrl: process.env.APP_URL
   },
+  axios: {
+    baseURL: process.env.APP_URL
+  },
   io: {
     sockets: [
       { // At least one entry is required

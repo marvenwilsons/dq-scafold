@@ -11,11 +11,6 @@ function composeBuilder(config) {
         image: "postgres",
         restart: "always",
         ports: ["5432"],
-        environment: {
-            POSTGRES_PASSWORD: config.postgresConfig.POSTGRES_PASSWORD || 'postgres',
-            POSTGRES_USER: config.postgresConfig.POSTGRES_PASSWORD || 'postgres',
-            POSTGRES_DB: config.postgresConfig.POSTGRES_DB || 'postgres'
-        },
         volumes: ["./pgdata:/var/lib/postgresql/data"],
         depends_on: ["site"]
     }
@@ -32,11 +27,17 @@ function composeBuilder(config) {
                 restart: "always",
                 working_dir: "/usr/src/nuxt-app",
                 environment: [
+                    // site env
                     `APP_URL=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? 'https://localhost:8443' : config.appUrl}`,
                     `APP_TITLE=${config.appName || 'DQ App'}`,
                     `JWT_SECRET=${config.JWT_secret || 'abcd1234'}`,
                     `APP_HOST=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${defaults.devHost}` : `${defaults.prodHost}` }`,
-                    "APP_PORT=5000"
+                    "APP_PORT=5000",
+                    // postgres env
+                    `PGPASSWORD=${config.postgresConfig.POSTGRES_PASSWORD || 'postgres'}`,
+                    `USER=${config.postgresConfig.POSTGRES_PASSWORD || 'postgres'}`,
+                    `PGHOST=postgres`,
+                    `PGDATABASE=${config.postgresConfig.POSTGRES_DB || 'postgres'}`
                 ],
                 ports: ["5000:5000"],
                 volumes: [
@@ -63,6 +64,7 @@ function composeBuilder(config) {
                     "80:80"
                 ],
                 environment: [
+                    //  nginx env
                     `NGINX_HTTPS_PORT=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? '8443' : '443'}`, 
                     `NGINX_HOST=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? 'localhost' : config.domain}`, 
                     "NGINX_PORT=80", 
