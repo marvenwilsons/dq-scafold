@@ -1,4 +1,5 @@
 {
     "devHost": "site",
-    "prodHost": "172.20.0.2"
+    "prodHost": "site",
+    "pgAdminPort": "5555"
 }

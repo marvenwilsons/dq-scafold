@@ -6,13 +6,40 @@ const defaults = require('../config/defaults.json')
 require('colors');
 
 function composeBuilder(config) {
+    // postgres service
     const postgres = {
         container_name: "postgres",
         image: "postgres",
         restart: "always",
         ports: ["5432"],
+        environment: {
+            POSTGRES_PASSWORD: config.postgresConfig.POSTGRES_PASSWORD || 'postgres',
+            POSTGRES_USER: config.postgresConfig.POSTGRES_PASSWORD || 'postgres',
+            POSTGRES_DB: config.postgresConfig.POSTGRES_DB || 'postgres',
+            PGHOST: 'postgres'
+        },
         volumes: ["./pgdata:/var/lib/postgresql/data"],
         depends_on: ["site"]
+    }
+    // pgAdmin service
+    const pgadmin = {
+        container_name: 'pgadmin',
+        image: "dpage/pgadmin4",
+        environment: [
+            `PGADMIN_DEFAULT_EMAIL=${config.PGADMIN_DEFAULT_EMAIL || 'user@domain.com'}`,
+            `PGADMIN_DEFAULT_PASSWORD=${config.PGADMIN_DEFAULT_PASSWORD || 'password'}`,
+            `PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True`,
+            `PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"`,
+        ],
+        volumes: [
+            "./pgadmin:/var/lib/pgadmin",
+            "./pgadmin:/pgadmin4/servers.json",
+            "./pgadmin:/pgadmin4/config_local.py"
+        ],
+        ports: [
+            `${defaults.pgAdminPort}:80`
+        ],
+        restart: "unless-stopped"
     }
     //
     const defaultCompose = {
@@ -24,7 +51,7 @@ function composeBuilder(config) {
                     target: config.buildFor == 'production' || config.buildFor == 'prod_test_local' ? 'production' : config.buildFor
                 },
                 container_name: "site-container",
-                restart: "always",
+                restart: "unless-stopped",
                 working_dir: "/usr/src/nuxt-app",
                 environment: [
                     // site env
@@ -68,7 +95,7 @@ function composeBuilder(config) {
                     `NGINX_HTTPS_PORT=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? '8443' : '443'}`, 
                     `NGINX_HOST=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? 'localhost' : config.domain}`, 
                     "NGINX_PORT=80", 
-                    `APP_SERVER_1=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${defaults.devHost}:5000` : `${defaults.prodHost}:5000`}`
+                    `APP_SERVER=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${defaults.devHost}:5000` : `${defaults.prodHost}:5000`}`
                 ]
             }
         }
@@ -76,8 +103,17 @@ function composeBuilder(config) {
     //
 
     if(config.usePostgres == true) {
-        defaultCompose.services.postgres = postgres
-        return defaultCompose
+
+        if(config.usePgAdmin == true) {
+            defaultCompose.services.postgres = postgres
+            defaultCompose.services.pgadmin = pgadmin
+            defaultCompose.services.nginx.depends_on.push('pgadmin')
+            defaultCompose.services.nginx.environment.push(`PGADMIN_URL=${config.postgresConfig.PGADMIN_URL || 'pgadmin'}`)
+            return defaultCompose
+        } else {
+            defaultCompose.services.postgres = postgres
+            return defaultCompose
+        }
     } else {
         return defaultCompose
     }
