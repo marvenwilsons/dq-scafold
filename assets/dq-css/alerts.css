@@ -1,0 +1,13 @@
+/* Error */
+.text-err {
+    color: #ff5252;
+}
+.border-err {
+  border: 1px solid #ff5252;
+}
+.alert-err {
+  background: #2e1a1a;
+  border-left: 5px solid #ff5252;
+  caret-color: #ff5252;
+  border-radius: 4px !important;
+}

@@ -347,12 +347,14 @@
 /* width */
 ::-webkit-scrollbar {
   width: 4px;
+  border-radius: 3px;
+  height: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.384); 
-  border-radius: 10px;
+  border-radius: 3px;
   width: 3px;
 }
  
@@ -360,5 +362,12 @@
 ::-webkit-scrollbar-thumb {
   background: rgba(128, 128, 128, 0.733); 
   width: 3px;
+  height: 3px;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(128, 128, 128, 0.733); 
+  width: 3px;
+  height: 3px;
   border-radius: 3px;
 }

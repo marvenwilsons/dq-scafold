@@ -1,0 +1,67 @@
+/* @paddings */
+.pad050 {
+    padding: calc(var(--fontSize) * 0.5);
+  }
+  
+  .pad025 {
+    padding: calc(var(--fontSize) * 0.25);
+  }
+  
+  .pad125 {
+    padding: calc(var(--fontSize) * 1.25);
+  }
+  
+  /* padding left, padding right */
+  .padleft025 {
+    padding-left: calc(var(--fontSize) * 0.25);
+  }
+  
+  .padleft050 {
+    padding-left: calc(var(--fontSize) * 0.5);
+  }
+  
+  .padright025 {
+    padding-right: calc(var(--fontSize) * 0.25);
+  }
+  
+  .padright050 {
+    padding-right: calc(var(--fontSize) * 0.5);
+  }
+  
+  .padleft125 {
+    padding-left: calc(var(--fontSize) * 1.25);
+  }
+  
+  .padright125 {
+    padding-right: calc(var(--fontSize) * 1.25);
+  }
+  
+  /* padding top */
+  .padtop125 {
+    padding-top: calc(var(--fontSize) * 1.25);
+  }
+  
+  .padtop025 {
+    padding-top: calc(var(--fontSize) * 0.25);
+  }
+  
+  .padtop050 {
+    padding-top: calc(var(--fontSize) * 0.5);
+  }
+  
+  /* padding bottom */
+  .padbottom125 {
+    padding-bottom: calc(var(--fontSize) * 1.25);
+  }
+  
+  .padbottom025 {
+    padding-bottom: calc(var(--fontSize) * 0.25);
+  }
+  
+  .padbottom050 {
+    padding-bottom: calc(var(--fontSize) * 0.5);
+  }
+
+  .padInp {
+    padding: calc(var(--fontSize) * 0.60);
+  }

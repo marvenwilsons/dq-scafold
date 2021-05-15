@@ -1,6 +1,5 @@
 const jwtGenerator = require('../../utils/jwt-generator')
 const jwt = require('jsonwebtoken')
-const user = require('../../../data/user.json')
 const adminMethods = require('../../admin-methods')
 
 const verifyToken = (token) => {

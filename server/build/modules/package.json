@@ -1,0 +1,42 @@
+{
+  "name": "donque-systems",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/main.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/main.js",
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/moment": "^1.6.1",
+    "bcrypt": "^5.0.0",
+    "colors": "^1.4.0",
+    "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "d3": "^6.7.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fkill": "^7.1.0",
+    "gsap": "^3.6.0",
+    "json-to-pretty-yaml": "^1.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nuxt": "^2.15.4",
+    "nuxt-socket-io": "^1.1.14",
+    "pg": "^8.5.1",
+    "prompts": "^2.4.0",
+    "socket.io": "^3.1.1",
+    "ssl-validator": "^1.0.7",
+    "vue-csv-import": "^4.0.6",
+    "vue-scrollto": "^2.20.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/color-mode": "^2.0.5",
+    "@nuxtjs/vuetify": "^1.11.2",
+    "nodemon": "^2.0.7"
+  }
+}

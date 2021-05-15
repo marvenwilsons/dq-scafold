@@ -1,11 +1,13 @@
 // import colors from 'vuetify/es5/util/colors'
 const colors = require('vuetify/es5/util/colors').default
+const bodyParser = require('body-parser')
+
 
 module.exports = {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: process.env.APP_TITLE,
-    // title: process.env.APP_TITLE,
+    title: process.env.APP_TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -42,13 +44,17 @@ module.exports = {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    '@/assets/dq-css/dq-fw-0.3.css',
+    '@/assets/dq-css/main.css',
     '@/assets/dq-css/normalize.css',
+    '@/assets/dq-css/theme/main.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '@plugins/GlobalComps.js'
+    { src: '~/plugins/client-only.js', mode: 'client' },
+    { src: '~/plugins/widget.js', mode: 'client' },
+    { src: '~/plugins/un-sorted-comps.js', mode: 'client' },
+    // { src: '~/plugins/element-ui.js', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -58,7 +64,8 @@ module.exports = {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/color-mode'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -82,6 +89,10 @@ module.exports = {
         cookie: false
       }
     ]
+  },
+  elementUI: {
+    components: ['Button', 'DatePicker'],
+    locale: 'fr',
   },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
@@ -111,7 +122,11 @@ module.exports = {
   build: {
   },
   serverMiddleware: [
-    // '~server/admin.js'
+    '~/server/express/statement/statement.js',
+    '~server/express/authentication/auth.js',
+    '~/server/express/user/user.js',
+    '~/server/express/user/saved_transaction.js',
+    '~/server/express/sample/index.js'
   ],
   telemetry: false,
   server: {

@@ -5,6 +5,8 @@ const conf = require('../config/startup.js')
 const defaults = require('../config/defaults.json')
 require('colors');
 
+const port = 8443
+
 function composeBuilder(config) {
     // postgres service
     const postgres = {
@@ -55,7 +57,7 @@ function composeBuilder(config) {
                 working_dir: "/usr/src/nuxt-app",
                 environment: [
                     // site env
-                    `APP_URL=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? 'https://localhost:8443' : config.appUrl}`,
+                    `APP_URL=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `http://localhost:${port}` : config.appUrl}`,
                     `APP_TITLE=${config.appName || 'DQ App'}`,
                     `JWT_SECRET=${config.JWT_secret || 'abcd1234'}`,
                     `APP_HOST=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${defaults.devHost}` : `${defaults.prodHost}` }`,
@@ -87,12 +89,12 @@ function composeBuilder(config) {
                 container_name: "nginx-container",
                 volumes: ["./nginx:/etc/nginx/templates", "./nginx/certs:/etc/nginx/certs"],
                 ports: [
-                    `${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? '8443:8443' : '443:443'}`, 
+                    `${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${port}:${port}` : '443:443'}`, 
                     "80:80"
                 ],
                 environment: [
                     //  nginx env
-                    `NGINX_HTTPS_PORT=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? '8443' : '443'}`, 
+                    `NGINX_HTTPS_PORT=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${port}` : '443'}`, 
                     `NGINX_HOST=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? 'localhost' : config.domain}`, 
                     "NGINX_PORT=80", 
                     `APP_SERVER=${config.buildFor == 'dev' || config.buildFor == 'prod_test_local' ? `${defaults.devHost}:5000` : `${defaults.prodHost}:5000`}`

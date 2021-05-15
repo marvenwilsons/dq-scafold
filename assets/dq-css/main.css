@@ -1,0 +1,333 @@
+@import './btn.css';
+@import './margin.css';
+@import './padding.css';
+@import './heading.css';
+@import './alerts.css';
+
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: system-ui;
+  text-decoration: none;
+  list-style: none;
+  list-style-type: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  /* height: auto; */
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.fullheight-VH {
+  height: 100vh;
+}
+
+.fullheight-percent {
+  height: 100%;
+}
+
+.footing {
+  margin-top: auto;
+  bottom: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  box-sizing: border-box;
+  display: block;
+}
+
+/*General Style*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #282828;
+}
+
+q {
+  font-style: italic;
+  quotes: """";
+}
+
+img {
+  width: 100%;
+  height: inherit;
+  overflow: hidden;
+}
+
+/*text colors*/
+
+/*containers*/
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexcenter {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/*orientation*/
+.flexrow {
+  flex-direction: row;
+}
+
+.flexcol {
+  flex-direction: column;
+}
+
+.spacebetween {
+  justify-content: space-between;
+}
+
+.spacearound {
+  justify-content: space-around;
+}
+
+.flexend {
+  justify-content: flex-end;
+}
+
+.flexstart {
+  justify-content: flex-start;
+}
+
+/*Responsiveness*/
+.flexwrap {
+  flex-wrap: wrap;
+}
+
+/*Child*/
+.margincenter {
+  margin: auto;
+}
+
+/*positions*/
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.absolutecenter {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/*forms*/
+
+/*spacers*/
+.spacer-w-20 {
+  width: 20px;
+}
+
+.spacer-h-20 {
+  height: 20px;
+}
+
+.spacer-w-40 {
+  width: 40px;
+}
+
+.spacer-h-40 {
+  height: 40px;
+}
+
+/*12 Col Grid System*/
+
+.borderred {
+  border: 1px solid red;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+/* flex */
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}
+
+.flex3 {
+  flex: 3;
+}
+
+.flex4 {
+  flex: 4;
+}
+
+.flex5 {
+  flex: 5;
+}
+
+.flex6 {
+  flex: 6;
+}
+
+.flex7 {
+  flex: 7;
+}
+
+.flex8 {
+  flex: 8;
+}
+
+.flex9 {
+  flex: 9;
+}
+
+.flex10 {
+  flex: 10;
+}
+
+/* @others */
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.overflowhidden {
+  overflow: hidden !important;
+}
+
+.aut {
+  overflow: auto !important;
+}
+
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.notallowed {
+  cursor: not-allowed;
+}
+
+.colorinherit {
+  color: inherit;
+}
+.borderRad4{
+  border-radius: 4px !important;
+}
+.systemui {
+  font-family: system-ui !important;
+}
+
+/* My Own Style ( dq framework 0.2 )
+     ============================================================================*/
+:root {
+  --fontSize: 18px;
+  --ln: 1.5rem;
+}
+
+html {
+  font-size: var(--fontSize);
+}
+
+body {
+  line-height: var(--ln);
+}
+
+.container.text {
+  max-width: 40rem;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl {
+  margin: 0 0 var(--ln) 0;
+}
+
+hr {
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.backgroundsuc {
+  background: #dff0d8;
+  color: #417946;
+  border-left: 5px solid #41794683;
+}
+
+/* dq input normalize */
+.dqinp {
+  border: 1px solid #a9a9a9;
+  color: rgba(0, 0, 0, 0.89);
+}
+
+.dqinp:active {
+  outline: none;
+}
+
+.dqinp:focus {
+  outline: none;
+}
+
+.dqinplabel {
+  color: rgba(0, 0, 0, 0.89);
+}
+
+
+body {
+  /* background: linear-gradient(to bottom, #ffffff, #ffffff 95%, #bda1a164 100%, #aaaaaa34); */
+  background-size: 100% var(--ln);
+}
+
+#spreketek {
+  /* background: linear-gradient(to bottom, #ffffff, #ffffff 95%, #bda1a164 100%, #aaaaaa34); */
+  background-size: 100% var(--ln);
+}
+
+._global {
+  width: 800px;
+}

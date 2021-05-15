@@ -1,21 +1,21 @@
 module.exports = {
     // default DQ App
-    appName: "", 
+    appName: "FT-X", 
     
     // default for dev is https://localhost:8443, default for production is null, this is required for production
     domain: '', 
     
-     // default https://localhost:8443, example: https://mydomain.com
+     // default http://localhost:8443, example: https://mydomain.com
     appUrl: '',
     
     // default false, if true buil will include postgres config
-    usePostgres: false,
+    usePostgres: true,
     
     // default false, if true build will include pgAdmin config
-    usePgAdmin: false,
+    usePgAdmin: true,
     
     // default abcd1234, should be change on initilization
-    JWT_secret: null, 
+    JWT_secret: 'k@zsdfi23945kjadf', 
 
     // default empty, example ENV_PROP=env_value
     additionalBindMounts: [], 
@@ -30,7 +30,7 @@ module.exports = {
         POSTGRES_USER: null,
 
         // default POSTGRES_DB is "postgres" if null
-        POSTGRES_DB: null,
+        POSTGRES_DB: 'money',
 
         // More on pgAdmin: https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
         // default PGADMIN_DEFAULT_EMAIL is "user@domain.com" if null
@@ -40,6 +40,6 @@ module.exports = {
         PGADMIN_DEFAULT_PASSWORD: null,
 
         // default PGADMIN_URL is pgadmin
-        PGADMIN_URL:null
+        PGADMIN_URL:'mydb'
     } 
 }

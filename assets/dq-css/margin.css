@@ -1,0 +1,62 @@
+/* margin top */
+.margintop025 {
+    margin-top: calc(var(--fontSize) * 0.25);
+  }
+  
+  .margintop125 {
+    margin-top: calc(var(--fontSize) * 1.25);
+  }
+  
+  .margintop050 {
+    margin-top: calc(var(--fontSize) * 0.5);
+  }
+  
+  .margin050 {
+    margin: calc(var(--fontSize) * 0.5);
+  }
+  
+  .margin025 {
+    margin: calc(var(--fontSize) * 0.25);
+  }
+  
+  .margin125 {
+    margin: calc(var(--fontSize) * 1.25);
+  }
+  
+  
+  .marginright025 {
+    margin-right: calc(var(--fontSize) * 0.25);
+  }
+  
+  .marginright125 {
+    margin-right: calc(var(--fontSize) * 1.25);
+  }
+  
+  .marginright050 {
+    margin-right: calc(var(--fontSize) * 0.50);
+  }
+  
+  
+  .marginbottom025 {
+    margin-bottom: calc(var(--fontSize) * 0.25);
+  }
+  
+  .marginbottom050 {
+    margin-bottom: calc(var(--fontSize) * 0.50);
+  }
+  
+  .marginbottom125 {
+    margin-bottom: calc(var(--fontSize) * 1.25);
+  }
+  
+  .marginleft025 {
+    margin-left: calc(var(--fontSize) * 0.25);
+  }
+  
+  .marginleft050 {
+    margin-left: calc(var(--fontSize) * 0.50);
+  }
+  
+  .marginleft125 {
+    margin-left: calc(var(--fontSize) * 1.25);
+  }

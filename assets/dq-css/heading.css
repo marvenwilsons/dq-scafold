@@ -1,0 +1,59 @@
+h1 {
+    font-size: calc(var(--fontSize) * 1.25 * 1.25 * 1.25 * 1.25 * 1.25 * 1.25);
+  }
+  
+  h2 {
+    font-size: calc(var(--fontSize) * 1.25 * 1.25 * 1.25 * 1.25 * 1.25);
+  }
+  
+  h3 {
+    font-size: calc(var(--fontSize) * 1.25 * 1.25 * 1.25 * 1.25);
+  }
+  
+  h4 {
+    font-size: calc(var(--fontSize) * 1.25 * 1.25 * 1.25);
+  }
+  
+  h5 {
+    font-size: calc(var(--fontSize) * 1.25 * 1.25);
+  }
+  
+  h6 {
+    font-size: calc(var(--fontSize) * 1.25);
+  }
+  
+  h1 {
+    line-height: calc(var(--ln) * 2.65);
+    margin-top: calc(var(--ln) * 2);
+    margin-bottom: calc(var(--ln) * 1.35);
+  }
+  
+  h2 {
+    line-height: calc(var(--ln) * 2.65);
+    margin-top: calc(var(--ln) * 1.35);
+    margin-bottom: var(--ln);
+  }
+  
+  h3 {
+    line-height: calc(var(--ln) * 1.65);
+    margin-top: calc(var(--ln) * 1.35);
+    margin-bottom: var(--ln);
+  }
+  
+  h4 {
+    line-height: var(--ln) * 1.65;
+    margin-top: calc(var(--ln) * 1.35);
+    margin-bottom: var(--ln);
+  }
+  
+  h5 {
+    line-height: var(--ln);
+    margin-top: calc(var(--ln) * 1.15);
+    margin-bottom: calc(var(--ln) * 0.85);
+  }
+  
+  h6 {
+    line-height: var(--ln);
+    margin-top: calc(var(--ln) * 1.15);
+    margin-bottom: calc(var(--ln) * 0.85);
+  }
